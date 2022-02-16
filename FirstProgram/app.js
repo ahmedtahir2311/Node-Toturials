@@ -6,18 +6,13 @@ function a(name) {
 a("ahmed");
 
 //Window is not in Node .... it has global
+console.log(); // global object
 
-// <ref *1> Object [global] {
-//   global: [Circular *1],
-//   clearInterval: [Function: clearInterval],
-//   clearTimeout: [Function: clearTimeout],
-//   setInterval: [Function: setInterval],
-//   setTimeout: [Function: setTimeout] {
-//     [Symbol(nodejs.util.promisify.custom)]: [Getter]
-//   },
-//   queueMicrotask: [Function: queueMicrotask],
-//   clearImmediate: [Function: clearImmediate],
-//   setImmediate: [Function: setImmediate] {
-//     [Symbol(nodejs.util.promisify.custom)]: [Getter]
-//   }
-// }
+//   clearInterval:
+//   clearTimeout:
+//   setTimeout:
+// setInterval
+
+// var message = "";
+
+// console.log(global.message); // not global object due to modular system
