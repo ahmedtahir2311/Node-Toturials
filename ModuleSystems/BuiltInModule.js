@@ -49,9 +49,11 @@ const fs = require("fs");
 
 // every operation comes after  fs.(----) comes in two forms. synchronous and blocking, asynchronous and non blocking.
 const files = fs.readdirSync("../");
-console.log(files);
+// console.log(files);
 fs.readdir("./", (err, files) => {
   // first argument is an error and second argument is an array of files.
-  if (err) console.log("Error: " + err);
-  else console.log("Result: " + files);
+  // if (err) console.log("Error: " + err);
+  // else console.log("Result: " + files);
 }); //  all the async methods take a function as a last argument. node call this function when the synchronous operation completes.
+
+// ===============================================================
