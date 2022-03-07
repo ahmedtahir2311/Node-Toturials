@@ -31,7 +31,6 @@ emitter.emit("messageLoged", {
 }); // it is a better practice to send a object in the arguments
 
 // ===================Practice for logging event
-
 const LoggerEmitter = require("events");
 
 const logger = new LoggerEmitter();
@@ -43,5 +42,4 @@ logger.on("Login", function (arg) {
     console.log("Successful Failed", arg);
   }
 });
-
 logger.emit("Login", { username: "ahmedtahir2311", password: "123456" });
