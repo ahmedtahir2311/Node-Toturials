@@ -1,5 +1,9 @@
+require("dotenv").config();
+console.log(process.env);
+
 const express = require("express");
 const logger = require("./middlerware/logger");
+var morgan = require("morgan");
 
 const app = express();
 
@@ -9,11 +13,20 @@ app.use(express.urlencoded({ extended: true })); //this middleware use the encod
 
 app.use(express.static("public")); //this middleware let us read th static files in public folder
 
+//Third Party MiddleWare
+if (process.env.NODE_ENV === "development") {
+  //getting NODE_ENV  == process.env.NODE_ENV    //set how to {{export NODE_ENV = production}}
+  app.use(morgan("tiny")); // use to log http request
+  console.log("Morgan enabled");
+}
+
 // making a custom middle ware
 app.use(function (req, res, next) {
   console.log("This is Middle ware running ");
   next(); //we need to pass the middle to next on
 });
+
+console.log(`NODE_ENV , ${process.env.NODE_ENV}`);
 
 app.use(logger.log);
 
@@ -80,4 +93,4 @@ function validateGenre(genre) {
 
 app.listen(process.env.PORT || 5000);
 
-console.log("listening to the port 5000");
+console.log(`listening to the port ${process.env.PORT}`);
